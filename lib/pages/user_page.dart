@@ -1,16 +1,16 @@
-import 'package:api_demo/models/post.dart';
-import 'package:api_demo/services/remote_service.dart';
+import 'package:api_demo/models/users.dart';
+import 'package:api_demo/services/remote_user.dart';
 import 'package:flutter/material.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+class OtherPage extends StatefulWidget {
+  const OtherPage({Key? key}) : super(key: key);
 
   @override
-  State<HomePage> createState() => _HomePageState();
+  State<OtherPage> createState() => _OtherPageState();
 }
 
-class _HomePageState extends State<HomePage> {
-  List<Post>? posts;
+class _OtherPageState extends State<OtherPage> {
+  List<Users>? users;
   bool isLoaded = false;
 
   @override
@@ -21,10 +21,10 @@ class _HomePageState extends State<HomePage> {
   }
 
   Future<void> getData() async {
-    final fetchedPosts = await RemoteService().getPosts();
-    if (fetchedPosts != null) {
+    final fetchedUsers = await RemoteUser().getUsers();
+    if (fetchedUsers != null) {
       setState(() {
-        posts = fetchedPosts;
+        users = fetchedUsers;
         isLoaded = true;
       });
     }
@@ -35,7 +35,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Posts',
+          'Users',
           style: TextStyle(
             color: Colors.white,
             fontSize: 20,
@@ -45,41 +45,39 @@ class _HomePageState extends State<HomePage> {
         centerTitle: true,
       ),
       body: isLoaded
-          ? (posts != null && posts!.isNotEmpty)
+          ? (users != null && users!.isNotEmpty)
               ? ListView.builder(
-                  itemCount: posts!.length,
+                  itemCount: users!.length,
                   itemBuilder: (context, index) {
                     return Container(
-                      padding: const EdgeInsets.all(16),
+                      padding: const EdgeInsets.all(18),
                       child: Row(
                         children: [
-                          Container(
+                          SizedBox(
                             height: 50,
                             width: 50,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(12),
-                              color: Colors.grey[300],
+                            child: Image.network(
+                              users![index].profilePic,
+                              fit: BoxFit.cover,
                             ),
                           ),
-                          const SizedBox(width: 16),
+                          const SizedBox(width: 8),
                           Expanded(
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  posts![index].title,
-                                  maxLines: 2,
-                                  overflow: TextOverflow.ellipsis,
+                                  users![index].username,
+                                  maxLines: 1,
                                   style: const TextStyle(
-                                    fontSize: 22,
+                                    fontSize: 18,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
-                                const SizedBox(height: 8),
+                                const SizedBox(height:3),
                                 Text(
-                                  posts![index].body,
-                                  maxLines: 3,
-                                  overflow: TextOverflow.ellipsis,
+                                  users![index].email,
+                                  maxLines: 1,
                                 ),
                               ],
                             ),
@@ -89,8 +87,8 @@ class _HomePageState extends State<HomePage> {
                     );
                   },
                 )
-              : const Center(child: Text('No posts available'))
-          : const Center(child: CircularProgressIndicator()),      
+              : const Center(child: Text('No users available'))
+          : const Center(child: CircularProgressIndicator()),
     );
   }
 }

@@ -1,6 +1,6 @@
 // main.dart
-import 'package:api_demo/pages/home.dart';
-import 'package:api_demo/pages/other.dart';
+import 'package:api_demo/pages/post_page.dart';
+import 'package:api_demo/pages/user_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {
