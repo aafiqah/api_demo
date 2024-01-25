@@ -27,7 +27,7 @@ class _AddEditPageState extends State<AddEditPage> {
     if (widget.users != null) {
       _usernameController.text = widget.users!.username;
       _emailController.text = widget.users!.email;
-      _profilePicController.text = widget.users!.profilePic;
+      _profilePicController.text = widget.users!.profile_pic;
     }
   }
 
@@ -198,7 +198,6 @@ class _AddEditPageState extends State<AddEditPage> {
       height: 50,
       child: ElevatedButton(
         onPressed: () async {
-          // to update mycontact to local storage
           if (widget.users != null) {
             await RemoteUser().updateUser(
                 widget.users!.id,
@@ -206,7 +205,7 @@ class _AddEditPageState extends State<AddEditPage> {
                   id: widget.users!.id,
                   username: _usernameController.text,
                   email: _emailController.text,
-                  profilePic: _profilePicController.text,
+                  profile_pic: _profilePicController.text,
                 ));
             Navigator.of(context).pop(true);
           }
@@ -216,7 +215,7 @@ class _AddEditPageState extends State<AddEditPage> {
               id: '',
               username: _usernameController.text,
               email: _emailController.text,
-              profilePic: _profilePicController.text,
+              profile_pic: _profilePicController.text,
             ));
             Navigator.of(context).pop(true);
           }

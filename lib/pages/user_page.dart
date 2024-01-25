@@ -81,14 +81,14 @@ class _OtherPageState extends State<OtherPage> {
                         SizedBox(
                           height: 50,
                           width: 50,
-                          child: users![index].profilePic.isNotEmpty
-                            ? Uri.parse(users![index].profilePic).isAbsolute
+                          child: users![index].profile_pic.isNotEmpty
+                            ? Uri.parse(users![index].profile_pic).isAbsolute
                               ? Image.network(
-                                  users![index].profilePic,
+                                  users![index].profile_pic,
                                   fit: BoxFit.cover,
                                 )
                               : Image.file(
-                                  File(users![index].profilePic),
+                                  File(users![index].profile_pic),
                                   fit: BoxFit.cover,
                                 )
                             : Container(
@@ -173,7 +173,7 @@ class _OtherPageState extends State<OtherPage> {
   AppBar buildAppBar() {
     return AppBar(
       title: const Text(
-        'Users',
+        'Users API',
         style: TextStyle(
           color: Colors.white,
           fontSize: 20,

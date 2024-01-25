@@ -35,7 +35,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Posts',
+          'Posts API',
           style: TextStyle(
             color: Colors.white,
             fontSize: 20,

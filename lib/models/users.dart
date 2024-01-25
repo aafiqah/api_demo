@@ -8,26 +8,26 @@ class Users {
     String id;
     String username;
     String email;
-    String profilePic;
+    String profile_pic;
 
     Users({
         required this.id,
         required this.username,
         required this.email,
-        required this.profilePic,
+        required this.profile_pic,
     });
 
     factory Users.fromJson(Map<String, dynamic> json) => Users(
         id: json["id"] ?? '',
         username: json["username"] ?? '',
         email: json["email"] ?? '',
-        profilePic: json["profile_pic"] ?? '',
+        profile_pic: json["profile_pic"] ?? '',
     );
 
     Map<String, dynamic> toJson() => {
         "id": id,
         "username": username,
         "email": email,
-        "profile_pic": profilePic,
+        "profile_pic": profile_pic,
     };
 }
