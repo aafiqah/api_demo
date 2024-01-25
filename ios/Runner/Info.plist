@@ -45,5 +45,12 @@
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
 	<true/>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Explanation of why you need access to the photo library</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+	<string>sms</string>
+	<string>tel</string>
+	</array>
 </dict>
 </plist>

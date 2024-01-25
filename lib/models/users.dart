@@ -18,10 +18,10 @@ class Users {
     });
 
     factory Users.fromJson(Map<String, dynamic> json) => Users(
-        id: json["id"],
-        username: json["username"],
-        email: json["email"],
-        profilePic: json["profile_pic"],
+        id: json["id"] ?? '',
+        username: json["username"] ?? '',
+        email: json["email"] ?? '',
+        profilePic: json["profile_pic"] ?? '',
     );
 
     Map<String, dynamic> toJson() => {
