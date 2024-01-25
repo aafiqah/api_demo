@@ -87,7 +87,7 @@ class _AddEditPageState extends State<AddEditPage> {
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               border: Border.all(
-                color: const Color(0xFF32BAA5),
+                color: Colors.blueAccent,
                 width: 5.0,
               ),
             ),
@@ -130,7 +130,7 @@ class _AddEditPageState extends State<AddEditPage> {
               height: 30.0,
               decoration: const BoxDecoration(
                 shape: BoxShape.circle,
-                color: Color(0xFF32BAA5),
+                color: Colors.blueAccent,
               ),
               child: IconButton(
                 icon: const Icon(
@@ -165,7 +165,7 @@ class _AddEditPageState extends State<AddEditPage> {
           color: Colors.grey, // color for the label when not focused
         ),
         floatingLabelStyle: const TextStyle(
-          color: Color(0xFF32BAA5), // color for the label when focused
+          color: Colors.blueAccent, // color for the label when focused
         ),
         contentPadding:
             const EdgeInsets.symmetric(vertical: 20.0, horizontal: 20.0),
@@ -179,7 +179,7 @@ class _AddEditPageState extends State<AddEditPage> {
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(30.0),
           borderSide: const BorderSide(
-            color: Color(0xFF32BAA5),
+            color: Colors.blueAccent,
           ),
         ),
       ),
@@ -221,7 +221,7 @@ class _AddEditPageState extends State<AddEditPage> {
           }
         },
         style: ElevatedButton.styleFrom(
-          backgroundColor: const Color(0xFF32BAA5),
+          backgroundColor: Colors.blueAccent,
           padding: const EdgeInsets.all(15),
         ),
         child: const Text(
